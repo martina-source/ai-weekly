@@ -2,11 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Weekly — Semana del 9 Mar 2026 al 16 Mar 2026</title>
+  <title>AI Weekly Digest — Semana del 9 Mar 2026 al 16 Mar 2026</title>
   <style>
   :root {
     --bg: #fafaf8; --fg: #1a1a1a; --muted: #6b7280; --accent: #2563eb;
     --accent-hover: #1d4ed8; --border: #e5e7eb; --top-bg: #f0f5ff;
+    --section-gap: 3.5rem;
     --max-w: 680px; --font: 'Georgia','Times New Roman',serif;
     --mono: ui-monospace,SFMono-Regular,monospace;
   }
@@ -14,58 +15,90 @@
   body { background: var(--bg); color: var(--fg); font-family: var(--font);
          font-size: 17px; line-height: 1.7; padding: 2rem 1rem 4rem; }
   .container { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Header */
   header { border-bottom: 2px solid var(--fg); padding-bottom: 1.5rem; margin-bottom: 2rem; }
   header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
   header .week-label { color: var(--muted); font-size: 0.9rem; font-family: var(--mono); margin-top: 0.3rem; }
   header .tagline { font-size: 0.95rem; color: var(--muted); margin-top: 0.5rem; font-style: italic; }
 
-  /* Top 3 */
-  .top3 { background: var(--top-bg); border: 1px solid #bfdbfe; border-radius: 8px;
-          padding: 1.5rem; margin-bottom: 2.5rem; }
-  .top3 h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em;
-             color: var(--accent); margin-bottom: 1rem; }
-  .top-card { display: flex; gap: 1rem; margin-bottom: 1.25rem; }
-  .top-card:last-child { margin-bottom: 0; }
-  .top-num { font-size: 1.8rem; font-weight: 800; color: #bfdbfe; line-height: 1;
-             min-width: 2rem; font-family: var(--mono); }
-  .top-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-  .top-card p { font-size: 0.9rem; color: #374151; }
+  /* Subscribe inline */
+  .subscribe-inline { display: flex; gap: 0.5rem; margin-top: 1rem; }
+  .subscribe-inline input { flex: 1; border: 1px solid var(--border); border-radius: 6px;
+                             padding: 0.45rem 0.75rem; font-size: 0.9rem; font-family: var(--font);
+                             outline: none; color: var(--fg); background: #fff; }
+  .subscribe-inline input:focus { border-color: var(--accent); }
 
-  /* News sections */
-  .news-section { margin-bottom: 2.5rem; }
-  .news-section h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
-                     color: var(--muted); border-bottom: 1px solid var(--border);
-                     padding-bottom: 0.5rem; margin-bottom: 1.25rem; }
-  .item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);
-          transition: all 0.2s; border-radius: 4px; padding: 0.75rem; margin-left: -0.75rem; }
-  .item:last-child { border-bottom: 1px solid var(--border); }
-  .item h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.35; }
-  .item p { font-size: 0.95rem; color: #374151; }
+  /* Editorial intro */
+  .editorial-intro { font-size: 1rem; color: #374151; line-height: 1.75;
+                     margin-bottom: var(--section-gap); padding-bottom: 2rem;
+                     border-bottom: 1px solid var(--border); }
+
+  /* Section wrapper — más separación visual */
+  .news-section { margin-bottom: var(--section-gap); }
+  .section-header { display: flex; align-items: baseline; gap: 0.6rem;
+                    border-top: 2px solid var(--fg); padding-top: 0.75rem; margin-bottom: 1.5rem; }
+  .section-header h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+  .section-header .section-count { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+
+  /* Items — formato uniforme en todas las secciones */
+  .item { padding: 0.85rem 0.85rem 0.85rem 0; margin-bottom: 0;
+          border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .item:last-child { border-bottom: none; }
+  .item-num { display: inline-block; font-size: 0.75rem; font-family: var(--mono);
+              color: var(--muted); margin-bottom: 0.2rem; }
+  .item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.35; }
+  .item p { font-size: 0.93rem; color: #374151; margin-bottom: 0.1rem; }
+  .item .why { font-size: 0.88rem; color: #1e40af; font-style: italic;
+               margin-top: 0.35rem; padding: 0.3rem 0.6rem;
+               background: var(--top-bg); border-radius: 4px; display: block; }
   .meta { display: block; font-size: 0.8rem; color: var(--muted); font-family: var(--mono); margin-top: 0.4rem; }
 
+  /* Top 3 — misma estructura que items pero con fondo y número grande */
+  .top3 { background: var(--top-bg); border: 1px solid #bfdbfe; border-radius: 10px;
+          padding: 1.5rem 1.5rem 0.5rem; margin-bottom: var(--section-gap); }
+  .top3-header { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 1.25rem; }
+  .top3-header h2 { font-size: 1.05rem; font-weight: 700; }
+  .top3-header .section-count { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+  .top3 .item { border-bottom-color: #bfdbfe; background: transparent;
+                padding-left: 0; display: flex; gap: 1rem; align-items: flex-start; }
+  .top3 .item:last-child { border-bottom: none; }
+  .top3 .item-num { font-size: 2rem; font-weight: 800; color: #bfdbfe; line-height: 1;
+                    min-width: 2rem; font-family: var(--mono); margin-top: 0.1rem; flex-shrink: 0; }
+  .top3 .item-body { flex: 1; }
+  .top3 .item h3 { font-size: 1rem; }
+
   /* Relevance highlights */
-  .item.relevance-high { background: #f0fdf4; border-left: 3px solid #16a34a; padding-left: 1rem; }
-  .item.relevance-medium { background: #fefce8; border-left: 3px solid #ca8a04; padding-left: 1rem; }
-  .item.relevance-low { opacity: 0.5; }
+  .item.relevance-high { background: #f0fdf4; border-left: 3px solid #16a34a; padding-left: 0.75rem; }
+  .item.relevance-medium { background: #fefce8; border-left: 3px solid #ca8a04; padding-left: 0.75rem; }
+  .item.relevance-low { opacity: 0.45; }
   .relevance-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem;
                      font-family: var(--mono); padding: 0.15rem 0.5rem; border-radius: 999px;
                      margin-top: 0.4rem; font-weight: 600; }
   .badge-high { background: #dcfce7; color: #15803d; }
   .badge-medium { background: #fef9c3; color: #a16207; }
   .relevance-reason { font-size: 0.82rem; color: #374151; font-style: italic; margin-top: 0.3rem;
-                      padding: 0.4rem 0.6rem; background: rgba(0,0,0,0.03); border-radius: 4px; }
+                      padding: 0.35rem 0.6rem; background: rgba(0,0,0,0.03); border-radius: 4px; }
+
+  /* Week ahead */
+  .week-ahead { margin-bottom: var(--section-gap); }
+  .week-ahead .section-header { border-top-color: var(--border); }
+  .week-ahead ul { list-style: none; }
+  .week-ahead li { padding: 0.65rem 0; border-bottom: 1px solid var(--border);
+                   font-size: 0.95rem; color: #374151; padding-left: 1.4rem; position: relative; }
+  .week-ahead li:last-child { border-bottom: none; }
+  .week-ahead li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
 
   /* Personalizer */
   .personalizer { background: #fff; border: 1.5px solid var(--border); border-radius: 10px;
-                  padding: 1.5rem; margin-bottom: 2.5rem; }
+                  padding: 1.5rem; margin-bottom: var(--section-gap); }
   .personalizer h2 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
   .personalizer .subtitle { font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem; font-style: italic; }
   .personalizer textarea { width: 100%; border: 1px solid var(--border); border-radius: 6px;
                             padding: 0.6rem 0.8rem; font-family: var(--font); font-size: 0.95rem;
-                            resize: vertical; min-height: 80px; outline: none; color: var(--fg);
-                            background: var(--bg); }
+                            resize: vertical; min-height: 80px; outline: none; color: var(--fg); background: var(--bg); }
   .personalizer textarea:focus { border-color: var(--accent); }
-  .personalizer .actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; align-items: center; }
+  .personalizer .actions { display: flex; gap: 0.75rem; margin-top: 0.75rem; align-items: center; flex-wrap: wrap; }
   .btn-primary { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1.1rem;
                  border-radius: 6px; font-size: 0.9rem; cursor: pointer; font-family: var(--font); }
   .btn-primary:hover { background: var(--accent-hover); }
@@ -83,29 +116,37 @@
   .key-hint { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; font-family: var(--mono); }
 
   /* Testimonials */
-  .testimonials { margin-bottom: 2.5rem; }
-  .testimonials h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
-                     color: var(--muted); border-bottom: 1px solid var(--border);
-                     padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+  .testimonials { margin-bottom: var(--section-gap); }
   .testimonial-grid { display: grid; gap: 1rem; }
-  .testimonial { background: var(--card-bg, #fff); border: 1px solid var(--border);
-                 border-radius: 8px; padding: 1.1rem 1.2rem; }
+  .testimonial { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.1rem 1.2rem; }
   .testimonial blockquote { font-size: 0.95rem; color: #374151; font-style: italic; margin-bottom: 0.75rem; line-height: 1.6; }
   .testimonial .author { display: flex; align-items: center; gap: 0.6rem; }
   .testimonial .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--top-bg);
-                          display: flex; align-items: center; justify-content: center;
-                          font-size: 1rem; flex-shrink: 0; }
+                          display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
   .testimonial .name { font-size: 0.88rem; font-weight: 700; }
   .testimonial .role { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+
+  /* Subscribe block */
+  .subscribe-block { background: var(--fg); color: #fff; border-radius: 10px;
+                     padding: 1.5rem; margin-bottom: var(--section-gap); text-align: center; }
+  .subscribe-block h2 { font-size: 1.1rem; margin-bottom: 0.4rem; color: #fff; }
+  .subscribe-block p { font-size: 0.9rem; color: #d1d5db; margin-bottom: 1rem; }
+  .subscribe-block .sub-form { display: flex; gap: 0.5rem; max-width: 420px; margin: 0 auto; }
+  .subscribe-block input { flex: 1; border: none; border-radius: 6px; padding: 0.5rem 0.75rem;
+                            font-size: 0.9rem; font-family: var(--font); outline: none; }
+  .subscribe-block .btn-sub { background: var(--accent); color: #fff; border: none; padding: 0.5rem 1rem;
+                               border-radius: 6px; font-size: 0.9rem; cursor: pointer; white-space: nowrap;
+                               font-family: var(--font); }
+  .subscribe-block .btn-sub:hover { background: var(--accent-hover); }
 
   /* Links & footer */
   a { color: var(--accent); text-decoration: none; }
   a:hover { color: var(--accent-hover); text-decoration: underline; }
-  footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 3rem; }
-  footer h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
+  .page-footer { border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1rem; }
+  .page-footer h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
               color: var(--muted); margin-bottom: 1rem; }
-  footer ul { list-style: none; }
-  footer ul li { margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .page-footer ul { list-style: none; }
+  .page-footer ul li { margin-bottom: 0.4rem; font-size: 0.9rem; }
   .back-link { display: inline-block; margin-bottom: 2rem; font-size: 0.9rem; font-family: var(--mono); }
 </style>
 </head>
@@ -115,6 +156,7 @@
     <h1>🤖 AI Weekly Digest</h1>
     <div class="week-label">Semana del 9 Mar 2026 al 16 Mar 2026</div>
     <p class="tagline">Los lanzamientos y novedades de IA más relevantes, curados automáticamente.</p>
+    
   </header>
   
       <section class="personalizer">
@@ -135,142 +177,176 @@
         </div>
         <div class="result-summary" id="result-summary"></div>
       </section>
-  <section class="top3"><h2>⚡ Lo más importante de la semana</h2>
-          <div class="top-card">
-            <div class="top-num">1</div>
-            <div>
-              <h3><a href="https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding" target="_blank" rel="noopener">Yann LeCun lanza AMI y recauda $1.03B en financiación semilla</a></h3>
-              <p>Advanced Machine Intelligence (AMI), la startup de Yann LeCun con menos de tres meses de vida, cerró una ronda semilla de $1.03 mil millones alcanzando una valoración de $3.5B. Es una de las rondas semilla más grandes de la historia y señala el interés masivo del capital riesgo en apuestas alternativas al paradigma actual de LLMs escalados.</p>
-              <span class="meta">Bloomberg</span>
-            </div>
+  <p class="editorial-intro">La semana estuvo dominada por el arranque de NVIDIA GTC 2026 —el evento de hardware de IA más influyente del año— en el que Jensen Huang delineó la próxima generación de chips y plataformas agénticas. En paralelo, la industria continuó procesando el terremoto ético provocado por el acuerdo de OpenAI con el Pentágono, que dejó dimisiones ejecutivas, un éxodo masivo de usuarios y a Claude de Anthropic en el número uno del App Store. El capital no da señales de enfriarse: el debut de AMI, la startup de Yann LeCun, con mil millones de dólares en semilla, marcó un hito histórico que apunta hacia arquitecturas de IA alternativas a los transformers.</p>
+  
+      <section class="top3">
+        <div class="top3-header">
+          <h2>⚡ Lo más importante de la semana</h2>
+          <span class="section-count">3 noticias</span>
+        </div>
+        
+        <article class="item">
+          <div class="item-num">1</div>
+          <div class="item-body">
+            <h3><a href="https://blogs.nvidia.com/blog/gtc-2026-news/" target="_blank" rel="noopener">NVIDIA GTC 2026 arranca: Jensen Huang presenta chips Vera Rubin Ultra, CPUs N1/N1X y plataforma agéntica NemoClaw</a></h3>
+            <p>El 16 de marzo comenzó en San José la conferencia tecnológica más esperada del año, donde Huang no sólo presentó la hoja de ruta de hardware hasta 2028 (GPU Feynman) sino que anunció NemoClaw, una plataforma de software para orquestar agentes empresariales a escala. Este evento define la infraestructura sobre la que correrán los modelos de frontera de los próximos dos años, con implicaciones directas para toda la cadena de valor de la IA.</p>
+            <span class="meta">NVIDIA Blog / Tom's Guide · 16 Mar 2026</span>
           </div>
-          <div class="top-card">
-            <div class="top-num">2</div>
-            <div>
-              <h3><a href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank" rel="noopener">OpenAI lanza GPT-5.4 con ventana de contexto de 1 millón de tokens</a></h3>
-              <p>GPT-5.4 llega en tres variantes (Standard, Thinking y Pro) con hasta 1.05 millones de tokens de contexto, reduciendo errores factuales en un 33% respecto a GPT-5.2. Su capacidad para ejecutar flujos de trabajo multi-paso de forma autónoma lo posiciona como el modelo más completo de OpenAI hasta la fecha.</p>
-              <span class="meta">BuildFastWithAI / llm-stats.com</span>
-            </div>
+        </article>
+        <article class="item">
+          <div class="item-num">2</div>
+          <div class="item-body">
+            <h3><a href="https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding" target="_blank" rel="noopener">Yann LeCun funda AMI y levanta 1.030 M$ en semilla: la mayor ronda seed de la historia de la IA</a></h3>
+            <p>El Chief AI Scientist de Meta abandonó su rol para lanzar Advanced Machine Intelligence, una startup que busca construir IA capaz de comprender el mundo físico, con arquitecturas que van más allá de la predicción de tokens. La ronda, que valora la empresa en 3.500 millones de dólares antes de lanzar un solo producto, representa la apuesta de capital más alta jamás vista en etapa semilla y señala una apuesta colectiva por romper los límites actuales de los LLMs.</p>
+            <span class="meta">Bloomberg / Stat News · 10 Mar 2026</span>
           </div>
-          <div class="top-card">
-            <div class="top-num">3</div>
-            <div>
-              <h3><a href="https://www.devflokers.com/blog/ai-breakthroughs-march-2026" target="_blank" rel="noopener">DeepSeek V4 alcanza 1 billón de parámetros con solo 32B activos por token</a></h3>
-              <p>DeepSeek lanzó V4 con una arquitectura Mixture-of-Experts que activa únicamente 32B parámetros por inferencia, logrando un rendimiento de clase frontier a un coste radicalmente inferior. Representa el avance más significativo de la IA china en 2026 y presiona aún más los precios del mercado de LLMs.</p>
-              <span class="meta">devFlokers / TLDL</span>
-            </div>
-          </div></section>
+        </article>
+        <article class="item">
+          <div class="item-num">3</div>
+          <div class="item-body">
+            <h3><a href="https://www.npr.org/2026/03/08/nx-s1-5741779/openai-resigns-ai-pentagon-guardrails-military" target="_blank" rel="noopener">OpenAI: dimisiones, boicot y 295% de aumento en desinstalaciones por el acuerdo con el Pentágono</a></h3>
+            <p>La semana del 9 al 16 consolidó la crisis post-acuerdo de OpenAI con el Departamento de Defensa: la renuncia de la directora de robótica Caitlin Kalinowski por falta de salvaguardas éticas, un aluvión de críticas públicas y Sam Altman reconociendo que el proceso fue 'apresurado y descuidado' marcaron el tono. El episodio revela la tensión estructural entre la misión declarada de la empresa y sus aspiraciones comerciales con actores gubernamentales.</p>
+            <span class="meta">NPR / Bloomberg / CNBC · 9 Mar 2026</span>
+          </div>
+        </article>
+      </section>
   
       <section class="news-section">
-        <h2>🤖 Nuevos modelos</h2>
+        <div class="section-header">
+          <h2>🤖 Nuevos modelos</h2>
+          <span class="section-count">4 noticias</span>
+        </div>
         
-        <article class="item" id="item-models-0" data-id="item-models-0" data-title="OpenAI GPT-5.4: tres variantes y 1.05M tokens de contexto" data-summary="Lanzado el 5 de marzo, GPT-5.4 reduce errores individuales en un 33% y ofrece la ventana de contexto comercial más grande de OpenAI. La variante Thinking prioriza razonamiento multi-paso, mientras que Pro maximiza capacidad general.">
-          <h3><a href="https://llm-stats.com/ai-news" target="_blank" rel="noopener">OpenAI GPT-5.4: tres variantes y 1.05M tokens de contexto</a></h3>
-          <p>Lanzado el 5 de marzo, GPT-5.4 reduce errores individuales en un 33% y ofrece la ventana de contexto comercial más grande de OpenAI. La variante Thinking prioriza razonamiento multi-paso, mientras que Pro maximiza capacidad general.</p>
-          <span class="meta">llm-stats.com · 5 Mar 2026</span>
+        <article class="item" id="item-models-0" data-id="item-models-0" data-title="Google DeepMind lanza Gemini 3.1 Pro y Flash-Lite: 2,5× más rápido a 0,25 $/millón de tokens" data-summary="Flash-Lite redefine el segmento de bajo costo con latencias mínimas y precio de inferencia masiva imbatible; Gemini 3.1 Pro incorpora el modo Deep Think para razonamiento extendido. Ambos modelos están disponibles en API y presionan directamente a GPT-5.4 en la batalla por desarrolladores de alto volumen.">
+          <h3><a href="https://llm-stats.com/llm-updates" target="_blank" rel="noopener">Google DeepMind lanza Gemini 3.1 Pro y Flash-Lite: 2,5× más rápido a 0,25 $/millón de tokens</a></h3>
+          <p>Flash-Lite redefine el segmento de bajo costo con latencias mínimas y precio de inferencia masiva imbatible; Gemini 3.1 Pro incorpora el modo Deep Think para razonamiento extendido. Ambos modelos están disponibles en API y presionan directamente a GPT-5.4 en la batalla por desarrolladores de alto volumen.</p>
+          
+          <span class="meta">llm-stats.com / Google DeepMind · 11 Mar 2026</span>
         </article>
-        <article class="item" id="item-models-1" data-id="item-models-1" data-title="Google Gemini 3.1 Flash-Lite: 2.5× más rápido y $0.25/M tokens" data-summary="Lanzado en preview el 3 de marzo, Gemini 3.1 Flash-Lite duplica la velocidad de respuesta y reduce el tiempo al primer token en 45% respecto a Gemini 2.5 Flash. Su precio de $0.25 por millón de tokens de entrada lo convierte en el modelo de referencia para aplicaciones de bajo coste.">
-          <h3><a href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank" rel="noopener">Google Gemini 3.1 Flash-Lite: 2.5× más rápido y $0.25/M tokens</a></h3>
-          <p>Lanzado en preview el 3 de marzo, Gemini 3.1 Flash-Lite duplica la velocidad de respuesta y reduce el tiempo al primer token en 45% respecto a Gemini 2.5 Flash. Su precio de $0.25 por millón de tokens de entrada lo convierte en el modelo de referencia para aplicaciones de bajo coste.</p>
-          <span class="meta">BuildFastWithAI · 3 Mar 2026</span>
+        <article class="item" id="item-models-1" data-id="item-models-1" data-title="NVIDIA Nemotron 3 Super alcanza el 60,47% en SWE-Bench Verified, nuevo récord open-weight en código" data-summary="El modelo open-weight de NVIDIA supera a todos sus rivales en la tarea de resolver issues reales de GitHub, convirtiéndose en la referencia de facto para aplicaciones de ingeniería de software automatizada en entornos on-premise.">
+          <h3><a href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank" rel="noopener">NVIDIA Nemotron 3 Super alcanza el 60,47% en SWE-Bench Verified, nuevo récord open-weight en código</a></h3>
+          <p>El modelo open-weight de NVIDIA supera a todos sus rivales en la tarea de resolver issues reales de GitHub, convirtiéndose en la referencia de facto para aplicaciones de ingeniería de software automatizada en entornos on-premise.</p>
+          
+          <span class="meta">buildfastwithai.com · 10 Mar 2026</span>
         </article>
-        <article class="item" id="item-models-2" data-id="item-models-2" data-title="Alibaba Qwen 3.5 Small: multimodal open-source que supera a GPT-OSS-120B en GPQA" data-summary="La familia Qwen 3.5 Small (0.8B–9B parámetros) publicada bajo licencia Apache 2.0 soporta texto, imágenes y vídeo de forma nativa. El modelo de 9B alcanza 81.7 en GPQA Diamond, superando al modelo de 120B de OpenAI (71.5), cerrando aún más la brecha open/closed source.">
-          <h3><a href="https://llm-stats.com/llm-updates" target="_blank" rel="noopener">Alibaba Qwen 3.5 Small: multimodal open-source que supera a GPT-OSS-120B en GPQA</a></h3>
-          <p>La familia Qwen 3.5 Small (0.8B–9B parámetros) publicada bajo licencia Apache 2.0 soporta texto, imágenes y vídeo de forma nativa. El modelo de 9B alcanza 81.7 en GPQA Diamond, superando al modelo de 120B de OpenAI (71.5), cerrando aún más la brecha open/closed source.</p>
-          <span class="meta">llm-stats.com · 1 Mar 2026</span>
+        <article class="item" id="item-models-2" data-id="item-models-2" data-title="OpenAI despliega Codex Security: agente autónomo de ciberseguridad que detectó 11.000 vulnerabilidades críticas" data-summary="El agente AppSec analiza repositorios de código, valida automáticamente cada hallazgo y propone parches, eliminando el ciclo manual de triage. En sus primeros 30 días de fase de investigación en codebases reales identificó más de 11.000 fallos de alta severidad o críticos.">
+          <h3><a href="https://www.jdsupra.com/legalnews/ai-today-in-5-march-10-2026-the-good-34024/" target="_blank" rel="noopener">OpenAI despliega Codex Security: agente autónomo de ciberseguridad que detectó 11.000 vulnerabilidades críticas</a></h3>
+          <p>El agente AppSec analiza repositorios de código, valida automáticamente cada hallazgo y propone parches, eliminando el ciclo manual de triage. En sus primeros 30 días de fase de investigación en codebases reales identificó más de 11.000 fallos de alta severidad o críticos.</p>
+          
+          <span class="meta">JDSupra / OpenAI · 10 Mar 2026</span>
         </article>
-        <article class="item" id="item-models-3" data-id="item-models-3" data-title="DeepSeek V4: 1 billón de parámetros, 32B activos por token (MoE)" data-summary="Con arquitectura Mixture-of-Experts, DeepSeek V4 logra rendimiento frontier activando solo el 3.2% de sus parámetros por inferencia. Su eficiencia de cómputo desafía el dominio de los modelos densos y vuelve a poner a China en el centro del debate sobre liderazgo en IA.">
-          <h3><a href="https://www.tldl.io/blog/ai-product-launches-march-2026" target="_blank" rel="noopener">DeepSeek V4: 1 billón de parámetros, 32B activos por token (MoE)</a></h3>
-          <p>Con arquitectura Mixture-of-Experts, DeepSeek V4 logra rendimiento frontier activando solo el 3.2% de sus parámetros por inferencia. Su eficiencia de cómputo desafía el dominio de los modelos densos y vuelve a poner a China en el centro del debate sobre liderazgo en IA.</p>
-          <span class="meta">TLDL / devFlokers · 3 Mar 2026</span>
-        </article>
-        <article class="item" id="item-models-4" data-id="item-models-4" data-title="IBM Granite 4.0 1B Speech: ASR y traducción multilingüe en 1B parámetros" data-summary="IBM presentó un modelo de habla compacto capaz de realizar reconocimiento automático de voz y traducción bidireccional en múltiples idiomas. Su pequeño tamaño lo hace desplegable en entornos edge y dispositivos con recursos limitados.">
-          <h3><a href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank" rel="noopener">IBM Granite 4.0 1B Speech: ASR y traducción multilingüe en 1B parámetros</a></h3>
-          <p>IBM presentó un modelo de habla compacto capaz de realizar reconocimiento automático de voz y traducción bidireccional en múltiples idiomas. Su pequeño tamaño lo hace desplegable en entornos edge y dispositivos con recursos limitados.</p>
-          <span class="meta">BuildFastWithAI · 10 Mar 2026</span>
+        <article class="item" id="item-models-3" data-id="item-models-3" data-title="Qwen 3.5 Small de Alibaba: modelo 9B que iguala a GPT-OSS-120B en benchmarks" data-summary="La familia de modelos densos de Alibaba, con variantes de 0,8B a 9B parámetros, demuestra que los modelos pequeños altamente optimizados pueden competir con modelos 13 veces más grandes, abaratando radicalmente el despliegue en dispositivos edge.">
+          <h3><a href="https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases" target="_blank" rel="noopener">Qwen 3.5 Small de Alibaba: modelo 9B que iguala a GPT-OSS-120B en benchmarks</a></h3>
+          <p>La familia de modelos densos de Alibaba, con variantes de 0,8B a 9B parámetros, demuestra que los modelos pequeños altamente optimizados pueden competir con modelos 13 veces más grandes, abaratando radicalmente el despliegue en dispositivos edge.</p>
+          
+          <span class="meta">buildfastwithai.com / llm-stats.com · 9 Mar 2026</span>
         </article>
       </section>
       <section class="news-section">
-        <h2>📄 Papers & Research</h2>
+        <div class="section-header">
+          <h2>📄 Papers & Research</h2>
+          <span class="section-count">3 noticias</span>
+        </div>
         
-        <article class="item" id="item-papers-0" data-id="item-papers-0" data-title="MemOS: un sistema operativo de memoria para LLMs" data-summary="MemOS propone una capa de gestión de memoria dedicada para modelos de lenguaje grandes, permitiendo almacenamiento, recuperación y actualización eficiente de conocimiento a largo plazo. Aborda uno de los problemas más críticos de los agentes autónomos: la persistencia coherente de contexto.">
-          <h3><a href="https://papers.cool/arxiv/cs.AI" target="_blank" rel="noopener">MemOS: un sistema operativo de memoria para LLMs</a></h3>
-          <p>MemOS propone una capa de gestión de memoria dedicada para modelos de lenguaje grandes, permitiendo almacenamiento, recuperación y actualización eficiente de conocimiento a largo plazo. Aborda uno de los problemas más críticos de los agentes autónomos: la persistencia coherente de contexto.</p>
-          <span class="meta">arXiv / papers.cool · 11 Mar 2026</span>
+        <article class="item" id="item-papers-0" data-id="item-papers-0" data-title="TraceSIR: Framework multi-agente para análisis estructurado de trazas de ejecución en sistemas agénticos" data-summary="Propone una arquitectura de agentes especializados que inspeccionan, descomponen y generan reportes sobre el comportamiento interno de pipelines de IA autónoma, incluyendo detección de razonamientos erróneos y bucles de decisión fallidos.">
+          <h3><a href="https://arxiv.org/list/cs.AI/current" target="_blank" rel="noopener">TraceSIR: Framework multi-agente para análisis estructurado de trazas de ejecución en sistemas agénticos</a></h3>
+          <p>Propone una arquitectura de agentes especializados que inspeccionan, descomponen y generan reportes sobre el comportamiento interno de pipelines de IA autónoma, incluyendo detección de razonamientos erróneos y bucles de decisión fallidos.</p>
+          <span class="why">💡 Cuanto más autónomos son los agentes de IA, más difícil es entender por qué tomaron una decisión; este trabajo es como una caja negra para aviones pero para IA, algo imprescindible para confiar y auditar estos sistemas.</span>
+          <span class="meta">arXiv · 12 Mar 2026</span>
         </article>
-        <article class="item" id="item-papers-1" data-id="item-papers-1" data-title="IndexCache: aceleración de atención dispersa reutilizando índices entre capas" data-summary="IndexCache reduce el coste computacional de la sparse attention en transformers al reutilizar los índices de selección de tokens entre capas consecutivas. Los resultados muestran mejoras de velocidad significativas sin pérdida de calidad, con implicaciones directas para inferencia en producción.">
-          <h3><a href="https://arxiv.org/list/cs.AI/current" target="_blank" rel="noopener">IndexCache: aceleración de atención dispersa reutilizando índices entre capas</a></h3>
-          <p>IndexCache reduce el coste computacional de la sparse attention en transformers al reutilizar los índices de selección de tokens entre capas consecutivas. Los resultados muestran mejoras de velocidad significativas sin pérdida de calidad, con implicaciones directas para inferencia en producción.</p>
-          <span class="meta">arXiv · 10 Mar 2026</span>
+        <article class="item" id="item-papers-1" data-id="item-papers-1" data-title="OmniForcing: Destilación de modelos de difusión dual-stream en generadores autorregresivos de streaming" data-summary="OmniForcing convierte modelos de difusión bidireccionales —potentes pero lentos— en generadores autorregresivos que operan en tiempo real, resolviendo inestabilidades de entrenamiento mediante una estrategia de destilación progresiva con anclajes de consistencia.">
+          <h3><a href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">OmniForcing: Destilación de modelos de difusión dual-stream en generadores autorregresivos de streaming</a></h3>
+          <p>OmniForcing convierte modelos de difusión bidireccionales —potentes pero lentos— en generadores autorregresivos que operan en tiempo real, resolviendo inestabilidades de entrenamiento mediante una estrategia de destilación progresiva con anclajes de consistencia.</p>
+          <span class="why">💡 Hace posible generar video y audio de alta calidad en tiempo real en lugar de esperar minutos por cada clip, lo que podría transformar desde videollamadas con avatares de IA hasta transmisiones en vivo generadas por IA.</span>
+          <span class="meta">Hugging Face Trending Papers · 13 Mar 2026</span>
         </article>
-        <article class="item" id="item-papers-2" data-id="item-papers-2" data-title="Google Research: el razonamiento explícito amplía el conocimiento paramétrico de los LLMs" data-summary="Investigadores de Google demostraron que pedir a los LLMs que razonen en cadena antes de responder amplía su frontera de conocimiento factual, habilitando recuperación generativa de hechos relacionados. Sin embargo, los pasos de razonamiento alucinados correlacionan fuertemente con respuestas incorrectas.">
-          <h3><a href="https://www.alphaxiv.org/" target="_blank" rel="noopener">Google Research: el razonamiento explícito amplía el conocimiento paramétrico de los LLMs</a></h3>
-          <p>Investigadores de Google demostraron que pedir a los LLMs que razonen en cadena antes de responder amplía su frontera de conocimiento factual, habilitando recuperación generativa de hechos relacionados. Sin embargo, los pasos de razonamiento alucinados correlacionan fuertemente con respuestas incorrectas.</p>
-          <span class="meta">arXiv / alphaXiv · 12 Mar 2026</span>
-        </article>
-        <article class="item" id="item-papers-3" data-id="item-papers-3" data-title="NERFIFY: framework multi-agente para convertir papers de NeRF en código (aceptado en CVPR 2026)" data-summary="NERFIFY utiliza un sistema multiagente para leer papers académicos de Neural Radiance Fields y generar automáticamente implementaciones ejecutables. Su aceptación en CVPR 2026 subraya el creciente interés en sistemas que cierran la brecha entre investigación y código reproducible.">
-          <h3><a href="https://arxiv.org/list/cs.MA/current" target="_blank" rel="noopener">NERFIFY: framework multi-agente para convertir papers de NeRF en código (aceptado en CVPR 2026)</a></h3>
-          <p>NERFIFY utiliza un sistema multiagente para leer papers académicos de Neural Radiance Fields y generar automáticamente implementaciones ejecutables. Su aceptación en CVPR 2026 subraya el creciente interés en sistemas que cierran la brecha entre investigación y código reproducible.</p>
-          <span class="meta">arXiv / Multiagent Systems Mar 2026 · 9 Mar 2026</span>
+        <article class="item" id="item-papers-2" data-id="item-papers-2" data-title="AutoDev: Sistema end-to-end de desarrollo de software impulsado por IA para automatización de ingeniería compleja" data-summary="AutoDev va más allá de los copilotos de código: automatiza diseño de arquitectura, escritura de tests, revisión de seguridad e integración continua en un único framework, logrando completar proyectos de software de mediana complejidad de forma autónoma en entornos controlados.">
+          <h3><a href="https://aitoolly.com/ai-news/2026-03-12" target="_blank" rel="noopener">AutoDev: Sistema end-to-end de desarrollo de software impulsado por IA para automatización de ingeniería compleja</a></h3>
+          <p>AutoDev va más allá de los copilotos de código: automatiza diseño de arquitectura, escritura de tests, revisión de seguridad e integración continua en un único framework, logrando completar proyectos de software de mediana complejidad de forma autónoma en entornos controlados.</p>
+          <span class="why">💡 Si un sistema de IA puede gestionar un proyecto de software completo de principio a fin, equipos de una sola persona podrían construir productos que antes requerían docenas de ingenieros, democratizando radicalmente quién puede crear tecnología.</span>
+          <span class="meta">arXiv / AIToolly · 12 Mar 2026</span>
         </article>
       </section>
       <section class="news-section">
-        <h2>🚀 Productos & Herramientas</h2>
+        <div class="section-header">
+          <h2>🚀 Productos & Herramientas</h2>
+          <span class="section-count">4 noticias</span>
+        </div>
         
-        <article class="item" id="item-products-0" data-id="item-products-0" data-title="Apple reinventa Siri con Gemini en iOS 26.4: contexto on-screen y privacidad en la nube" data-summary="Apple anunció una Siri completamente rediseñada para iOS 26.4 que integra el modelo Gemini de 1.2 billones de parámetros de Google via Private Cloud Compute. La nueva Siri es consciente del contenido en pantalla y puede operar entre apps, manteniendo las garantías de privacidad características de Apple.">
-          <h3><a href="https://www.forbesnewsmag.com/2026/03/05/new-ai-tools-launched-in-2026/" target="_blank" rel="noopener">Apple reinventa Siri con Gemini en iOS 26.4: contexto on-screen y privacidad en la nube</a></h3>
-          <p>Apple anunció una Siri completamente rediseñada para iOS 26.4 que integra el modelo Gemini de 1.2 billones de parámetros de Google via Private Cloud Compute. La nueva Siri es consciente del contenido en pantalla y puede operar entre apps, manteniendo las garantías de privacidad características de Apple.</p>
-          <span class="meta">Forbes NewsMag / MarketingProfs · 11 Mar 2026</span>
+        <article class="item" id="item-products-0" data-id="item-products-0" data-title="Legora recauda 550 M$ en Serie D para IA colaborativa en despachos jurídicos, valuada en 5.550 M$" data-summary="La plataforma de IA para equipos legales automatiza revisión documental, redacción de contratos y análisis de riesgo con un modelo colaborativo donde humanos y agentes trabajan en el mismo espacio. La ronda fue liderada por Accel con participación de Benchmark, Bessemer, ICONIQ y Y Combinator.">
+          <h3><a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank" rel="noopener">Legora recauda 550 M$ en Serie D para IA colaborativa en despachos jurídicos, valuada en 5.550 M$</a></h3>
+          <p>La plataforma de IA para equipos legales automatiza revisión documental, redacción de contratos y análisis de riesgo con un modelo colaborativo donde humanos y agentes trabajan en el mismo espacio. La ronda fue liderada por Accel con participación de Benchmark, Bessemer, ICONIQ y Y Combinator.</p>
+          
+          <span class="meta">aifundingtracker.com · 11 Mar 2026</span>
         </article>
-        <article class="item" id="item-products-1" data-id="item-products-1" data-title="Microsoft Copilot Cowork: agente empresarial para análisis de archivos locales" data-summary="Copilot Cowork permite a trabajadores leer, analizar y manipular archivos directamente en su ordenador mediante instrucciones en lenguaje natural. Microsoft apunta al mercado enterprise con un agente que opera sobre datos locales sin necesidad de subirlos a la nube.">
-          <h3><a href="https://www.marketingprofs.com/opinions/2026/54427/ai-update-march-13-2026-ai-news-and-views-from-the-past-week" target="_blank" rel="noopener">Microsoft Copilot Cowork: agente empresarial para análisis de archivos locales</a></h3>
-          <p>Copilot Cowork permite a trabajadores leer, analizar y manipular archivos directamente en su ordenador mediante instrucciones en lenguaje natural. Microsoft apunta al mercado enterprise con un agente que opera sobre datos locales sin necesidad de subirlos a la nube.</p>
-          <span class="meta">TLDL / MarketingProfs · 13 Mar 2026</span>
+        <article class="item" id="item-products-1" data-id="item-products-1" data-title="NVIDIA NemoClaw: plataforma de orquestación de agentes empresariales anunciada en GTC 2026" data-summary="NemoClaw es la respuesta de NVIDIA a la necesidad de software que gestione flotas de agentes de IA en entornos corporativos, integrándose con su stack de hardware y permitiendo despliegues en on-premise y nube privada.">
+          <h3><a href="https://www.cnbc.com/2026/03/13/nvidia-gtc-ai-jensen-huang-cpu-gpu.html" target="_blank" rel="noopener">NVIDIA NemoClaw: plataforma de orquestación de agentes empresariales anunciada en GTC 2026</a></h3>
+          <p>NemoClaw es la respuesta de NVIDIA a la necesidad de software que gestione flotas de agentes de IA en entornos corporativos, integrándose con su stack de hardware y permitiendo despliegues en on-premise y nube privada.</p>
+          
+          <span class="meta">CNBC / NVIDIA · 16 Mar 2026</span>
         </article>
-        <article class="item" id="item-products-2" data-id="item-products-2" data-title="Nvidia NemoClaw: plataforma open-source para construir agentes AI empresariales" data-summary="Nvidia lanzó NemoClaw como plataforma de código abierto orientada al despliegue de agentes autónomos en entornos corporativos. Aprovecha los avances de NeMo y la infraestructura CUDA de Nvidia para facilitar la orquestación de agentes a escala.">
-          <h3><a href="https://www.tldl.io/blog/ai-product-launches-march-2026" target="_blank" rel="noopener">Nvidia NemoClaw: plataforma open-source para construir agentes AI empresariales</a></h3>
-          <p>Nvidia lanzó NemoClaw como plataforma de código abierto orientada al despliegue de agentes autónomos en entornos corporativos. Aprovecha los avances de NeMo y la infraestructura CUDA de Nvidia para facilitar la orquestación de agentes a escala.</p>
-          <span class="meta">TLDL · 12 Mar 2026</span>
+        <article class="item" id="item-products-2" data-id="item-products-2" data-title="Xscape Photonics cierra 37 M$ adicionales para interconexiones láser en clusters de supercomputación IA" data-summary="La startup de fotónica en silicio amplía su Serie A a 81 millones para escalar su tecnología de interconexión láser multiwavelength, diseñada para eliminar los cuellos de botella de datos que limitan el rendimiento de los grandes clusters de entrenamiento de IA.">
+          <h3><a href="https://aifundingtracker.com/ai-startup-funding-news-today/" target="_blank" rel="noopener">Xscape Photonics cierra 37 M$ adicionales para interconexiones láser en clusters de supercomputación IA</a></h3>
+          <p>La startup de fotónica en silicio amplía su Serie A a 81 millones para escalar su tecnología de interconexión láser multiwavelength, diseñada para eliminar los cuellos de botella de datos que limitan el rendimiento de los grandes clusters de entrenamiento de IA.</p>
+          
+          <span class="meta">aifundingtracker.com · 12 Mar 2026</span>
         </article>
-        <article class="item" id="item-products-3" data-id="item-products-3" data-title="ChatGPT Visual Math: explicaciones dinámicas para más de 70 conceptos matemáticos y científicos" data-summary="OpenAI lanzó una función dentro de ChatGPT que genera visualizaciones interactivas para conceptos como interés compuesto, decaimiento exponencial o la Ley de Ohm. El objetivo es hacer la educación STEM más accesible con explicaciones generadas dinámicamente y adaptadas al nivel del usuario.">
-          <h3><a href="https://www.marketingprofs.com/opinions/2026/54427/ai-update-march-13-2026-ai-news-and-views-from-the-past-week" target="_blank" rel="noopener">ChatGPT Visual Math: explicaciones dinámicas para más de 70 conceptos matemáticos y científicos</a></h3>
-          <p>OpenAI lanzó una función dentro de ChatGPT que genera visualizaciones interactivas para conceptos como interés compuesto, decaimiento exponencial o la Ley de Ohm. El objetivo es hacer la educación STEM más accesible con explicaciones generadas dinámicamente y adaptadas al nivel del usuario.</p>
-          <span class="meta">MarketingProfs · 13 Mar 2026</span>
-        </article>
-        <article class="item" id="item-products-4" data-id="item-products-4" data-title="Basis alcanza valoración unicornio ($1.15B) con plataforma de contabilidad agéntica" data-summary="Basis cerró una Serie B de $100M para su plataforma que automatiza auditorías y preparación fiscal mediante agentes de IA. Es uno de los primeros unicornios en el espacio de finanzas corporativas agénticas, validando la tesis de reemplazar flujos de trabajo contables completos.">
-          <h3><a href="https://blog.mean.ceo/ai-product-launches-news-march-2026/" target="_blank" rel="noopener">Basis alcanza valoración unicornio ($1.15B) con plataforma de contabilidad agéntica</a></h3>
-          <p>Basis cerró una Serie B de $100M para su plataforma que automatiza auditorías y preparación fiscal mediante agentes de IA. Es uno de los primeros unicornios en el espacio de finanzas corporativas agénticas, validando la tesis de reemplazar flujos de trabajo contables completos.</p>
-          <span class="meta">AI Product Launches / mean.ceo · 10 Mar 2026</span>
+        <article class="item" id="item-products-3" data-id="item-products-3" data-title="Dassault Systèmes exhibe gemelos digitales con IA en GTC 2026 para biología, materiales e ingeniería" data-summary="En el marco de GTC, Dassault demostró cómo sus gemelos virtuales acelerados por NVIDIA simulan y optimizan procesos en tiempo real en farmacéutica, ciencia de materiales y manufactura avanzada, reduciendo el ciclo de diseño experimental.">
+          <h3><a href="https://www.3ds.com/newsroom/media-alerts/nvidia-gtc-2026-dassault-systemes-demos-ai-powered-virtual-twins-advancing-biology-materials-engineering-and-manufacturing" target="_blank" rel="noopener">Dassault Systèmes exhibe gemelos digitales con IA en GTC 2026 para biología, materiales e ingeniería</a></h3>
+          <p>En el marco de GTC, Dassault demostró cómo sus gemelos virtuales acelerados por NVIDIA simulan y optimizan procesos en tiempo real en farmacéutica, ciencia de materiales y manufactura avanzada, reduciendo el ciclo de diseño experimental.</p>
+          
+          <span class="meta">Dassault Systèmes / 3ds.com · 16 Mar 2026</span>
         </article>
       </section>
       <section class="news-section">
-        <h2>💰 Industria & Funding</h2>
+        <div class="section-header">
+          <h2>💰 Industria & Funding</h2>
+          <span class="section-count">5 noticias</span>
+        </div>
         
-        <article class="item" id="item-industry-0" data-id="item-industry-0" data-title="Yann LeCun recauda $1.03B en ronda semilla para Advanced Machine Intelligence (AMI)" data-summary="AMI, fundada hace menos de tres meses por Yann LeCun (ex-Chief AI Scientist de Meta), cerró la mayor ronda semilla conocida en IA, alcanzando $3.5B de valoración. La apuesta apunta a arquitecturas de IA radicalmente distintas a los LLMs actuales, siguiendo la visión de LeCun sobre inteligencia de nivel humano.">
-          <h3><a href="https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding" target="_blank" rel="noopener">Yann LeCun recauda $1.03B en ronda semilla para Advanced Machine Intelligence (AMI)</a></h3>
-          <p>AMI, fundada hace menos de tres meses por Yann LeCun (ex-Chief AI Scientist de Meta), cerró la mayor ronda semilla conocida en IA, alcanzando $3.5B de valoración. La apuesta apunta a arquitecturas de IA radicalmente distintas a los LLMs actuales, siguiendo la visión de LeCun sobre inteligencia de nivel humano.</p>
-          <span class="meta">Bloomberg · 10 Mar 2026</span>
+        <article class="item" id="item-industry-0" data-id="item-industry-0" data-title="Crisis en OpenAI: dimisión de Caitlin Kalinowski, boicot de usuarios y el acuerdo con el Pentágono en el banquillo" data-summary="La directora de robótica y hardware de OpenAI renunció el 7 de marzo argumentando que las salvaguardas para 'vigilancia de ciudadanos sin supervisión judicial' y 'autonomía letal sin autorización humana' no estaban definidas antes del anuncio. Las desinstalaciones de ChatGPT subieron un 295% en un día; Sam Altman reconoció el error y se comprometió a publicar un marco ético para el uso militar.">
+          <h3><a href="https://techcrunch.com/2026/03/07/openai-robotics-lead-caitlin-kalinowski-quits-in-response-to-pentagon-deal/" target="_blank" rel="noopener">Crisis en OpenAI: dimisión de Caitlin Kalinowski, boicot de usuarios y el acuerdo con el Pentágono en el banquillo</a></h3>
+          <p>La directora de robótica y hardware de OpenAI renunció el 7 de marzo argumentando que las salvaguardas para 'vigilancia de ciudadanos sin supervisión judicial' y 'autonomía letal sin autorización humana' no estaban definidas antes del anuncio. Las desinstalaciones de ChatGPT subieron un 295% en un día; Sam Altman reconoció el error y se comprometió a publicar un marco ético para el uso militar.</p>
+          
+          <span class="meta">NPR / TechCrunch / CNBC · 9 Mar 2026</span>
         </article>
-        <article class="item" id="item-industry-1" data-id="item-industry-1" data-title="Febrero 2026 bate el récord histórico de inversión VC: $189B, el 90% en IA" data-summary="Según Crunchbase, febrero de 2026 fue el mes de mayor inversión en startups de la historia, con $189B globales y $171B destinados a empresas de IA. OpenAI ($110B, valoración $840B) y Anthropic ($30B Serie G, valoración $380B) concentraron la mayor parte del capital.">
-          <h3><a href="https://news.crunchbase.com/venture/record-setting-global-funding-february-2026-openai-anthropic/" target="_blank" rel="noopener">Febrero 2026 bate el récord histórico de inversión VC: $189B, el 90% en IA</a></h3>
-          <p>Según Crunchbase, febrero de 2026 fue el mes de mayor inversión en startups de la historia, con $189B globales y $171B destinados a empresas de IA. OpenAI ($110B, valoración $840B) y Anthropic ($30B Serie G, valoración $380B) concentraron la mayor parte del capital.</p>
-          <span class="meta">Crunchbase / TechCrunch · 3 Mar 2026</span>
+        <article class="item" id="item-industry-1" data-id="item-industry-1" data-title="AMI de LeCun: 1.030 M$ en semilla para IA que entienda el mundo físico, no sólo el lenguaje" data-summary="Advanced Machine Intelligence parte de la premisa de que los LLMs son fundamentalmente limitados para la IA general y busca modelos del mundo ('world models') que representen causalidad y física. La empresa nace con una de las mayores rondas seed de la historia tecnológica.">
+          <h3><a href="https://www.statnews.com/2026/03/10/ai-ami-yann-lecun-nabla-lebrun-world-model/" target="_blank" rel="noopener">AMI de LeCun: 1.030 M$ en semilla para IA que entienda el mundo físico, no sólo el lenguaje</a></h3>
+          <p>Advanced Machine Intelligence parte de la premisa de que los LLMs son fundamentalmente limitados para la IA general y busca modelos del mundo ('world models') que representen causalidad y física. La empresa nace con una de las mayores rondas seed de la historia tecnológica.</p>
+          
+          <span class="meta">Bloomberg / Stat News · 10 Mar 2026</span>
         </article>
-        <article class="item" id="item-industry-2" data-id="item-industry-2" data-title="Legora recauda $550M en Serie D a valoración de $5.55B" data-summary="Legora, plataforma de IA colaborativa para profesionales legales, cerró una Serie D que la convierte en uno de los unicornios de legaltech más valiosos del mundo. La ronda refleja el creciente apetito inversor por aplicaciones verticales de IA en sectores regulados como el legal.">
-          <h3><a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank" rel="noopener">Legora recauda $550M en Serie D a valoración de $5.55B</a></h3>
-          <p>Legora, plataforma de IA colaborativa para profesionales legales, cerró una Serie D que la convierte en uno de los unicornios de legaltech más valiosos del mundo. La ronda refleja el creciente apetito inversor por aplicaciones verticales de IA en sectores regulados como el legal.</p>
-          <span class="meta">AI Funding Tracker / TechCrunch · 11 Mar 2026</span>
+        <article class="item" id="item-industry-2" data-id="item-industry-2" data-title="Casa Blanca formaliza directiva federal de IA para anular leyes estatales y crear estándar nacional unificado" data-summary="El Departamento de Comercio publicó evaluaciones de leyes estatales de IA, la FCC propuso un estándar federal de reporte que desplazaría normativas locales y la FTC emitió orientaciones sobre modelos engañosos. El marco busca una regulación 'mínimamente restrictiva' que priorice la competitividad de EE. UU. frente a China.">
+          <h3><a href="https://www.hoganlovells.com/en/publications/white-house-issues-executive-order-to-establish-a-federal-ai-policy-and-preempt-state-laws" target="_blank" rel="noopener">Casa Blanca formaliza directiva federal de IA para anular leyes estatales y crear estándar nacional unificado</a></h3>
+          <p>El Departamento de Comercio publicó evaluaciones de leyes estatales de IA, la FCC propuso un estándar federal de reporte que desplazaría normativas locales y la FTC emitió orientaciones sobre modelos engañosos. El marco busca una regulación 'mínimamente restrictiva' que priorice la competitividad de EE. UU. frente a China.</p>
+          
+          <span class="meta">Hogan Lovells / Wilson Sonsini · 10 Mar 2026</span>
         </article>
-        <article class="item" id="item-industry-3" data-id="item-industry-3" data-title="Frenzy de financiación en IA: AWS, Nvidia GTC y el nuevo ciclo de inversión en agentes" data-summary="SiliconAngle reporta que la semana del 9-13 de marzo estuvo marcada por anuncios de AWS y el inminente evento GTC de Nvidia, donde se esperan novedades en infraestructura para agentes autónomos. La confluencia de grandes nubes y fabricantes de chips acelera la carrera por la plataforma dominante de agentes.">
-          <h3><a href="https://siliconangle.com/2026/03/13/ai-startups-funding-frenzy-aws-goes-next-whats-coming-nvidias-gtc-event/" target="_blank" rel="noopener">Frenzy de financiación en IA: AWS, Nvidia GTC y el nuevo ciclo de inversión en agentes</a></h3>
-          <p>SiliconAngle reporta que la semana del 9-13 de marzo estuvo marcada por anuncios de AWS y el inminente evento GTC de Nvidia, donde se esperan novedades en infraestructura para agentes autónomos. La confluencia de grandes nubes y fabricantes de chips acelera la carrera por la plataforma dominante de agentes.</p>
-          <span class="meta">SiliconAngle · 13 Mar 2026</span>
+        <article class="item" id="item-industry-3" data-id="item-industry-3" data-title="Cognizant: la IA 'plug-and-play' es un mito; el 86% de empresas aumentará presupuesto pero pocas obtienen ROI real" data-summary="El nuevo informe global de Cognizant revela que las organizaciones que implementan IA sin integración profunda y gestión del cambio fracasan sistemáticamente, mientras que las que invierten en personalización reportan retornos significativos. La brecha entre expectativa y realidad sigue siendo el principal freno a la adopción empresarial.">
+          <h3><a href="https://news.cognizant.com/2026-03-10-Cognizant-Research-Shows-Plug-and-Play-AI-is-a-Myth" target="_blank" rel="noopener">Cognizant: la IA 'plug-and-play' es un mito; el 86% de empresas aumentará presupuesto pero pocas obtienen ROI real</a></h3>
+          <p>El nuevo informe global de Cognizant revela que las organizaciones que implementan IA sin integración profunda y gestión del cambio fracasan sistemáticamente, mientras que las que invierten en personalización reportan retornos significativos. La brecha entre expectativa y realidad sigue siendo el principal freno a la adopción empresarial.</p>
+          
+          <span class="meta">Cognizant Research · 10 Mar 2026</span>
         </article>
-        <article class="item" id="item-industry-4" data-id="item-industry-4" data-title="Robótica humanoide como nueva categoría de inversión: Sunday recauda $165M a $1.15B de valoración" data-summary="Sunday, startup de robótica doméstica, alcanzó el estatus de unicornio con su robot humanoide 'Memo' para el hogar. La robótica humanoide se proyecta como la categoría de inversión emergente de 2026, con más de $20B esperados en el año tras la validación comercial de Figure y otros.">
-          <h3><a href="https://aifundingtracker.com/top-50-ai-startups/" target="_blank" rel="noopener">Robótica humanoide como nueva categoría de inversión: Sunday recauda $165M a $1.15B de valoración</a></h3>
-          <p>Sunday, startup de robótica doméstica, alcanzó el estatus de unicornio con su robot humanoide 'Memo' para el hogar. La robótica humanoide se proyecta como la categoría de inversión emergente de 2026, con más de $20B esperados en el año tras la validación comercial de Figure y otros.</p>
-          <span class="meta">AI Funding Tracker / mean.ceo · 9 Mar 2026</span>
+        <article class="item" id="item-industry-4" data-id="item-industry-4" data-title="Healthcare y IA: reguladores en HIMSS 2026 alertan sobre el ritmo insostenible de adopción clínica sin marco legal" data-summary="En la conferencia HIMSS 2026, reguladores y ejecutivos hospitalarios debatieron el riesgo de desplegar herramientas de diagnóstico y triage basadas en IA sin aprobación formal, mientras la FDA acelera su framework para IA adaptativa en dispositivos médicos.">
+          <h3><a href="https://www.healthcaredive.com/news/ai-advancement-healthcare-regulation-himss-2026/814268/" target="_blank" rel="noopener">Healthcare y IA: reguladores en HIMSS 2026 alertan sobre el ritmo insostenible de adopción clínica sin marco legal</a></h3>
+          <p>En la conferencia HIMSS 2026, reguladores y ejecutivos hospitalarios debatieron el riesgo de desplegar herramientas de diagnóstico y triage basadas en IA sin aprobación formal, mientras la FDA acelera su framework para IA adaptativa en dispositivos médicos.</p>
+          
+          <span class="meta">Healthcare Dive · 11 Mar 2026</span>
         </article>
+      </section>
+  
+      <section class="week-ahead">
+        <div class="section-header">
+          <h2>🔭 Qué mirar la semana que viene</h2>
+        </div>
+        <ul><li>NVIDIA GTC 2026 continúa hasta el 19 de marzo: se esperan detalles adicionales sobre Vera Rubin Ultra, el lanzamiento formal de NemoClaw y posiblemente el anuncio oficial de los CPUs N1/N1X para laptops Windows con IA integrada.</li><li>OpenAI podría publicar su marco ético de uso militar antes del 20 de marzo para frenar la hemorragia de usuarios y atender las demandas de sus empleados, con especial atención a los límites sobre autonomía letal y vigilancia.</li><li>Se esperan los primeros resultados de aceptación de ICLR 2026, con especial expectativa en trabajos sobre razonamiento emergente, eficiencia de modelos pequeños y alineamiento de agentes autónomos.</li></ul>
+      </section>
+  
+      <section class="subscribe-block">
+        <h2>📬 Recibilo cada semana</h2>
+        <p>Sin algoritmos, sin ruido. Solo lo que importa en IA, en tu bandeja de entrada.</p>
+        <p style="font-size:0.85rem;color:#9ca3af;margin-top:0.5rem">Configurá SUBSCRIBE_URL en .env para activar suscripciones.</p>
       </section>
   
       <section class="testimonials">
@@ -307,7 +383,7 @@
         </div>
       </div></div>
       </section>
-  <footer><h2>📚 Ediciones anteriores</h2><ul><li><a href="archive/2026-03-09.html">Semana del 9 Mar al 15 Mar 2026</a></li></ul></footer>
+  <nav class="page-footer"><h2>📚 Ediciones anteriores</h2><ul><li><a href="archive/2026-03-09.html">Semana del 9 Mar al 15 Mar 2026</a></li></ul></nav>
 </div>
 
 <script>
