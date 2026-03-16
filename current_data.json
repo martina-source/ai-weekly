@@ -3,150 +3,164 @@
   "week_end": "2026-03-16",
   "top_3": [
     {
-      "title": "Yann LeCun lanza Advanced Machine Intelligence con $1.000M en financiación semilla",
-      "summary": "El ex jefe de IA de Meta cofundó Advanced Machine Intelligence, que cerró la mayor ronda semilla de la historia para una startup europea con $1.030M. La empresa desarrolla 'world models', un paradigma alternativo a los LLMs que LeCun defiende como el camino hacia la IA general. Su impacto redefine el mapa competitivo global de la IA.",
+      "title": "Yann LeCun lanza AMI y recauda $1.03B en financiación semilla",
+      "summary": "Advanced Machine Intelligence (AMI), la startup de Yann LeCun con menos de tres meses de vida, cerró una ronda semilla de $1.03 mil millones alcanzando una valoración de $3.5B. Es una de las rondas semilla más grandes de la historia y señala el interés masivo del capital riesgo en apuestas alternativas al paradigma actual de LLMs escalados.",
       "source": "Bloomberg",
       "url": "https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding"
     },
     {
-      "title": "Semana récord de modelos: GPT-5.4, Gemini 3.1, Nemotron 3 y DeepSeek V4 en simultáneo",
-      "summary": "OpenAI lanzó GPT-5.4 (con 33% menos errores factuales que su predecesor), Google presentó Gemini 3.1 con 77,1% en ARC-AGI-2 y NVIDIA anunció Nemotron 3 en la semana del 14 de marzo. La cadencia de lanzamientos cada 2-3 semanas entre los grandes laboratorios marca un nuevo ritmo en la carrera de modelos. Confirma que 2026 es el año de la convergencia entre capacidad y coste.",
-      "source": "labla.org",
-      "url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/ai-model-releases-everything-that-dropped-this-week-march-14-2026/"
+      "title": "OpenAI lanza GPT-5.4 con ventana de contexto de 1 millón de tokens",
+      "summary": "GPT-5.4 llega en tres variantes (Standard, Thinking y Pro) con hasta 1.05 millones de tokens de contexto, reduciendo errores factuales en un 33% respecto a GPT-5.2. Su capacidad para ejecutar flujos de trabajo multi-paso de forma autónoma lo posiciona como el modelo más completo de OpenAI hasta la fecha.",
+      "source": "BuildFastWithAI / llm-stats.com",
+      "url": "https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases"
     },
     {
-      "title": "Nvidia GTC 2026: plataforma Vera Rubin y visión de la IA industrial",
-      "summary": "El evento GTC de NVIDIA centró la atención de la industria con la presentación del sucesor de Blackwell, la plataforma Vera Rubin, y con proyecciones de que la IA impulsará $2,5 billones en gasto tecnológico global en 2026. El evento consolidó a NVIDIA como el eje de infraestructura de toda la economía IA. Los anuncios de AMD (acuerdo con OpenAI por 6 gigavatios de cómputo) añadieron tensión competitiva.",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/03/10/cramer-this-ai-stock-is-in-the-sweet-spot-plus-an-nvidia-gtc-preview.html"
+      "title": "DeepSeek V4 alcanza 1 billón de parámetros con solo 32B activos por token",
+      "summary": "DeepSeek lanzó V4 con una arquitectura Mixture-of-Experts que activa únicamente 32B parámetros por inferencia, logrando un rendimiento de clase frontier a un coste radicalmente inferior. Representa el avance más significativo de la IA china en 2026 y presiona aún más los precios del mercado de LLMs.",
+      "source": "devFlokers / TLDL",
+      "url": "https://www.devflokers.com/blog/ai-breakthroughs-march-2026"
     }
   ],
   "sections": {
     "models": [
       {
-        "title": "OpenAI lanza GPT-5.4: 33% menos errores factuales y nuevas capacidades",
-        "summary": "GPT-5.4 llega como actualización significativa sobre GPT-5.2, con mejoras medibles en factualidad y razonamiento. OpenAI discontinuó GPT-5.1 y migró conversaciones activas a los nuevos modelos 5.3 Instant, 5.4 Thinking y 5.4 Pro.",
-        "source": "labla.org",
-        "url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/ai-model-releases-everything-that-dropped-this-week-march-14-2026/",
-        "date": "2026-03-14"
+        "title": "OpenAI GPT-5.4: tres variantes y 1.05M tokens de contexto",
+        "summary": "Lanzado el 5 de marzo, GPT-5.4 reduce errores individuales en un 33% y ofrece la ventana de contexto comercial más grande de OpenAI. La variante Thinking prioriza razonamiento multi-paso, mientras que Pro maximiza capacidad general.",
+        "source": "llm-stats.com",
+        "url": "https://llm-stats.com/ai-news",
+        "date": "2026-03-05"
       },
       {
-        "title": "Gemini 3.1 Pro de Google logra 77,1% en ARC-AGI-2, liderando 13 de 16 benchmarks",
-        "summary": "Gemini 3.1 Pro alcanzó resultados históricos en tests de razonamiento lógico no memorizable, lo que refuerza la posición de Google DeepMind en modelos de frontera. Su rendimiento en ARC-AGI-2 supera a todos los modelos públicos conocidos.",
+        "title": "Google Gemini 3.1 Flash-Lite: 2.5× más rápido y $0.25/M tokens",
+        "summary": "Lanzado en preview el 3 de marzo, Gemini 3.1 Flash-Lite duplica la velocidad de respuesta y reduce el tiempo al primer token en 45% respecto a Gemini 2.5 Flash. Su precio de $0.25 por millón de tokens de entrada lo convierte en el modelo de referencia para aplicaciones de bajo coste.",
+        "source": "BuildFastWithAI",
+        "url": "https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases",
+        "date": "2026-03-03"
+      },
+      {
+        "title": "Alibaba Qwen 3.5 Small: multimodal open-source que supera a GPT-OSS-120B en GPQA",
+        "summary": "La familia Qwen 3.5 Small (0.8B–9B parámetros) publicada bajo licencia Apache 2.0 soporta texto, imágenes y vídeo de forma nativa. El modelo de 9B alcanza 81.7 en GPQA Diamond, superando al modelo de 120B de OpenAI (71.5), cerrando aún más la brecha open/closed source.",
         "source": "llm-stats.com",
         "url": "https://llm-stats.com/llm-updates",
-        "date": "2026-03-14"
+        "date": "2026-03-01"
       },
       {
-        "title": "NVIDIA presenta Nemotron 3 durante GTC 2026",
-        "summary": "NVIDIA anunció Nemotron 3 como parte de su ecosistema de modelos optimizados para inferencia en su hardware Vera Rubin. El modelo está orientado a aplicaciones empresariales y de código, compitiendo directamente con Llama 4 y Claude Sonnet.",
-        "source": "labla.org",
-        "url": "https://www.labla.org/latest-ai-model-releases-past-24-hours/ai-model-releases-everything-that-dropped-this-week-march-14-2026/",
-        "date": "2026-03-14"
+        "title": "DeepSeek V4: 1 billón de parámetros, 32B activos por token (MoE)",
+        "summary": "Con arquitectura Mixture-of-Experts, DeepSeek V4 logra rendimiento frontier activando solo el 3.2% de sus parámetros por inferencia. Su eficiencia de cómputo desafía el dominio de los modelos densos y vuelve a poner a China en el centro del debate sobre liderazgo en IA.",
+        "source": "TLDL / devFlokers",
+        "url": "https://www.tldl.io/blog/ai-product-launches-march-2026",
+        "date": "2026-03-03"
       },
       {
-        "title": "Alibaba lanza Qwen 3.5, modelo multimodal de nueva generación",
-        "summary": "Qwen 3.5 fue presentado como el modelo multimodal más potente de Alibaba hasta la fecha, con soporte mejorado para texto, imágenes y audio. Refuerza la competencia de los laboratorios chinos frente a los modelos occidentales de frontera.",
-        "source": "Forbes News Mag",
-        "url": "https://www.forbesnewsmag.com/2026/03/05/new-ai-tools-launched-in-2026/",
+        "title": "IBM Granite 4.0 1B Speech: ASR y traducción multilingüe en 1B parámetros",
+        "summary": "IBM presentó un modelo de habla compacto capaz de realizar reconocimiento automático de voz y traducción bidireccional en múltiples idiomas. Su pequeño tamaño lo hace desplegable en entornos edge y dispositivos con recursos limitados.",
+        "source": "BuildFastWithAI",
+        "url": "https://www.buildfastwithai.com/blogs/ai-models-march-2026-releases",
         "date": "2026-03-10"
-      },
-      {
-        "title": "DeepSeek V4 debuta con 1 billón de parámetros",
-        "summary": "DeepSeek lanzó V4 con un billón de parámetros, continuando la escalada de los laboratorios chinos en modelos de gran escala. Su coste de inferencia sigue siendo significativamente menor que el de los modelos occidentales comparables, presionando los precios de la industria.",
-        "source": "llm-stats.com",
-        "url": "https://llm-stats.com/llm-updates",
-        "date": "2026-03-09"
       }
     ],
     "papers": [
       {
-        "title": "DeepMind publica 'Dynamic Reflections: Probing Video Representations with Text Alignment'",
-        "summary": "DeepMind presentó un paper que explora cómo los modelos de vídeo construyen representaciones internas y su alineación con descripciones textuales. El trabajo aporta nuevas métricas de evaluación para modelos multimodales de vídeo y abre vías para mejorar la comprensión temporal en IA.",
-        "source": "Google DeepMind",
-        "url": "https://deepmind.google/research/publications/",
-        "date": "2026-03-10"
-      },
-      {
-        "title": "arXiv: 'Alien Science: Sampling Coherent but Cognitively Unavailable Research Directions' (ICLR 2026)",
-        "summary": "Este paper, aceptado en el workshop Post-AGI Science and Society de ICLR 2026, propone un framework para que sistemas de IA generen hipótesis científicas fuera del espacio cognitivo humano. Plantea cuestiones fundamentales sobre la co-evolución de la ciencia y la IA.",
-        "source": "arXiv",
-        "url": "https://arxiv.org/list/cs.AI/current",
+        "title": "MemOS: un sistema operativo de memoria para LLMs",
+        "summary": "MemOS propone una capa de gestión de memoria dedicada para modelos de lenguaje grandes, permitiendo almacenamiento, recuperación y actualización eficiente de conocimiento a largo plazo. Aborda uno de los problemas más críticos de los agentes autónomos: la persistencia coherente de contexto.",
+        "source": "arXiv / papers.cool",
+        "url": "https://papers.cool/arxiv/cs.AI",
         "date": "2026-03-11"
       },
       {
-        "title": "NeuroHex: sistema de coordenadas hexagonales para world models adaptativos (NICE 2026)",
-        "summary": "NeuroHex introduce un sistema de coordenadas inspirado en neurociencia para construir world models geoespaciales más eficientes. Su presentación en NICE 2026 generó interés por aplicaciones en robótica y simulación de entornos 3D.",
+        "title": "IndexCache: aceleración de atención dispersa reutilizando índices entre capas",
+        "summary": "IndexCache reduce el coste computacional de la sparse attention en transformers al reutilizar los índices de selección de tokens entre capas consecutivas. Los resultados muestran mejoras de velocidad significativas sin pérdida de calidad, con implicaciones directas para inferencia en producción.",
         "source": "arXiv",
-        "url": "https://arxiv.org/list/cs.AI/recent",
+        "url": "https://arxiv.org/list/cs.AI/current",
+        "date": "2026-03-10"
+      },
+      {
+        "title": "Google Research: el razonamiento explícito amplía el conocimiento paramétrico de los LLMs",
+        "summary": "Investigadores de Google demostraron que pedir a los LLMs que razonen en cadena antes de responder amplía su frontera de conocimiento factual, habilitando recuperación generativa de hechos relacionados. Sin embargo, los pasos de razonamiento alucinados correlacionan fuertemente con respuestas incorrectas.",
+        "source": "arXiv / alphaXiv",
+        "url": "https://www.alphaxiv.org/",
         "date": "2026-03-12"
+      },
+      {
+        "title": "NERFIFY: framework multi-agente para convertir papers de NeRF en código (aceptado en CVPR 2026)",
+        "summary": "NERFIFY utiliza un sistema multiagente para leer papers académicos de Neural Radiance Fields y generar automáticamente implementaciones ejecutables. Su aceptación en CVPR 2026 subraya el creciente interés en sistemas que cierran la brecha entre investigación y código reproducible.",
+        "source": "arXiv / Multiagent Systems Mar 2026",
+        "url": "https://arxiv.org/list/cs.MA/current",
+        "date": "2026-03-09"
       }
     ],
     "products": [
       {
-        "title": "Salesforce lanza seis nuevos agentes de IA para el sector sanitario",
-        "summary": "Los seis agentes cubren flujos como derivaciones clínicas, detección de patrones de enfermedades infecciosas y gestión de autorizaciones previas. Su despliegue en hospitales en EE.UU. marca la consolidación de la IA agéntica en entornos clínicos regulados.",
-        "source": "Healthcare Brew",
-        "url": "https://www.healthcare-brew.com/stories/2026/03/10/salesforce-releases-six-new-ai-agents-healthcare",
-        "date": "2026-03-10"
+        "title": "Apple reinventa Siri con Gemini en iOS 26.4: contexto on-screen y privacidad en la nube",
+        "summary": "Apple anunció una Siri completamente rediseñada para iOS 26.4 que integra el modelo Gemini de 1.2 billones de parámetros de Google via Private Cloud Compute. La nueva Siri es consciente del contenido en pantalla y puede operar entre apps, manteniendo las garantías de privacidad características de Apple.",
+        "source": "Forbes NewsMag / MarketingProfs",
+        "url": "https://www.forbesnewsmag.com/2026/03/05/new-ai-tools-launched-in-2026/",
+        "date": "2026-03-11"
       },
       {
-        "title": "Google Pixel Drop de marzo: Circle to Search, 'Try It On' y Gemini en apps",
-        "summary": "La actualización mensual de Pixel trae Circle to Search para identificar objetos en imágenes, una función de probador virtual de ropa y Gemini integrado para ejecutar tareas dentro de aplicaciones de terceros. Consolida a Pixel como laboratorio de IA de consumo de Google.",
-        "source": "Google Blog",
-        "url": "https://blog.google/products-and-platforms/devices/pixel/march-2026-pixel-drop/",
-        "date": "2026-03-12"
-      },
-      {
-        "title": "ByteDance publica DeerFlow 2.0, superagente open-source de investigación y código",
-        "summary": "DeerFlow 2.0 es un framework open-source que orquesta subagentes, memorias, herramientas y sandboxes para investigar, programar y crear contenido de forma autónoma. Su apertura podría acelerar el desarrollo de agentes autónomos en la comunidad.",
-        "source": "devflokers.com",
-        "url": "https://www.devflokers.com/blog/ai-breakthroughs-march-2026",
+        "title": "Microsoft Copilot Cowork: agente empresarial para análisis de archivos locales",
+        "summary": "Copilot Cowork permite a trabajadores leer, analizar y manipular archivos directamente en su ordenador mediante instrucciones en lenguaje natural. Microsoft apunta al mercado enterprise con un agente que opera sobre datos locales sin necesidad de subirlos a la nube.",
+        "source": "TLDL / MarketingProfs",
+        "url": "https://www.marketingprofs.com/opinions/2026/54427/ai-update-march-13-2026-ai-news-and-views-from-the-past-week",
         "date": "2026-03-13"
       },
       {
-        "title": "Microsoft lanza Copilot Tasks: planificación y ejecución automática de tareas",
-        "summary": "Copilot Tasks permite a los usuarios describir objetivos complejos y delegar su ejecución autónoma al asistente de Microsoft. Es la respuesta de Microsoft a los agentes de OpenAI y Anthropic, con integración nativa en el ecosistema Microsoft 365.",
-        "source": "Medium / Synthetic Futures",
-        "url": "https://medium.com/synthetic-futures/four-ai-tools-that-just-changed-whats-possible-in-march-2026-a20d5df46341",
-        "date": "2026-03-11"
+        "title": "Nvidia NemoClaw: plataforma open-source para construir agentes AI empresariales",
+        "summary": "Nvidia lanzó NemoClaw como plataforma de código abierto orientada al despliegue de agentes autónomos en entornos corporativos. Aprovecha los avances de NeMo y la infraestructura CUDA de Nvidia para facilitar la orquestación de agentes a escala.",
+        "source": "TLDL",
+        "url": "https://www.tldl.io/blog/ai-product-launches-march-2026",
+        "date": "2026-03-12"
+      },
+      {
+        "title": "ChatGPT Visual Math: explicaciones dinámicas para más de 70 conceptos matemáticos y científicos",
+        "summary": "OpenAI lanzó una función dentro de ChatGPT que genera visualizaciones interactivas para conceptos como interés compuesto, decaimiento exponencial o la Ley de Ohm. El objetivo es hacer la educación STEM más accesible con explicaciones generadas dinámicamente y adaptadas al nivel del usuario.",
+        "source": "MarketingProfs",
+        "url": "https://www.marketingprofs.com/opinions/2026/54427/ai-update-march-13-2026-ai-news-and-views-from-the-past-week",
+        "date": "2026-03-13"
+      },
+      {
+        "title": "Basis alcanza valoración unicornio ($1.15B) con plataforma de contabilidad agéntica",
+        "summary": "Basis cerró una Serie B de $100M para su plataforma que automatiza auditorías y preparación fiscal mediante agentes de IA. Es uno de los primeros unicornios en el espacio de finanzas corporativas agénticas, validando la tesis de reemplazar flujos de trabajo contables completos.",
+        "source": "AI Product Launches / mean.ceo",
+        "url": "https://blog.mean.ceo/ai-product-launches-news-march-2026/",
+        "date": "2026-03-10"
       }
     ],
     "industry": [
       {
-        "title": "Advanced Machine Intelligence (Yann LeCun) recauda $1.030M en la mayor ronda semilla europea",
-        "summary": "La startup cofundada por el ex científico jefe de IA de Meta levantó más de un billón de dólares en su ronda inicial, récord absoluto para una startup europea. La empresa apuesta por los 'world models' como alternativa a los transformers dominantes, con respaldo de inversores tier-1 de EE.UU. y Europa.",
+        "title": "Yann LeCun recauda $1.03B en ronda semilla para Advanced Machine Intelligence (AMI)",
+        "summary": "AMI, fundada hace menos de tres meses por Yann LeCun (ex-Chief AI Scientist de Meta), cerró la mayor ronda semilla conocida en IA, alcanzando $3.5B de valoración. La apuesta apunta a arquitecturas de IA radicalmente distintas a los LLMs actuales, siguiendo la visión de LeCun sobre inteligencia de nivel humano.",
         "source": "Bloomberg",
         "url": "https://www.bloomberg.com/news/articles/2026-03-10/yann-lecun-s-new-ai-startup-raises-1-billion-in-seed-funding",
         "date": "2026-03-10"
       },
       {
-        "title": "Nscale (UK) capta $2.000M en la mayor ronda global de infraestructura IA de la semana",
-        "summary": "Nscale, proveedor de infraestructura de cómputo para IA con sede en Reino Unido, cerró una ronda de $2.000M que la convierte en uno de los actores de nube IA más capitalizados de Europa. Refleja la feroz demanda de capacidad de cómputo alternativa a AWS, Azure y GCP.",
-        "source": "SiliconANGLE",
+        "title": "Febrero 2026 bate el récord histórico de inversión VC: $189B, el 90% en IA",
+        "summary": "Según Crunchbase, febrero de 2026 fue el mes de mayor inversión en startups de la historia, con $189B globales y $171B destinados a empresas de IA. OpenAI ($110B, valoración $840B) y Anthropic ($30B Serie G, valoración $380B) concentraron la mayor parte del capital.",
+        "source": "Crunchbase / TechCrunch",
+        "url": "https://news.crunchbase.com/venture/record-setting-global-funding-february-2026-openai-anthropic/",
+        "date": "2026-03-03"
+      },
+      {
+        "title": "Legora recauda $550M en Serie D a valoración de $5.55B",
+        "summary": "Legora, plataforma de IA colaborativa para profesionales legales, cerró una Serie D que la convierte en uno de los unicornios de legaltech más valiosos del mundo. La ronda refleja el creciente apetito inversor por aplicaciones verticales de IA en sectores regulados como el legal.",
+        "source": "AI Funding Tracker / TechCrunch",
+        "url": "https://aifundingtracker.com/top-50-ai-startups/",
+        "date": "2026-03-11"
+      },
+      {
+        "title": "Frenzy de financiación en IA: AWS, Nvidia GTC y el nuevo ciclo de inversión en agentes",
+        "summary": "SiliconAngle reporta que la semana del 9-13 de marzo estuvo marcada por anuncios de AWS y el inminente evento GTC de Nvidia, donde se esperan novedades en infraestructura para agentes autónomos. La confluencia de grandes nubes y fabricantes de chips acelera la carrera por la plataforma dominante de agentes.",
+        "source": "SiliconAngle",
         "url": "https://siliconangle.com/2026/03/13/ai-startups-funding-frenzy-aws-goes-next-whats-coming-nvidias-gtc-event/",
         "date": "2026-03-13"
       },
       {
-        "title": "Legora recauda $550M en Serie D a valoración de $5.550M",
-        "summary": "La plataforma de IA colaborativa para profesionales del derecho cerró una Serie D liderada por Accel con participación de Benchmark, Bessemer e ICONIQ. El deal confirma al legal-tech como uno de los sectores IA con mayor tracción inversora de 2026.",
-        "source": "Crunchbase News",
-        "url": "https://news.crunchbase.com/venture/biggest-funding-rounds-ai-robotics-ecommerce-quince/",
-        "date": "2026-03-12"
-      },
-      {
-        "title": "Perplexity AI supera 1.000M de consultas mensuales y cierra Serie E a $24.000M",
-        "summary": "El motor de búsqueda conversacional alcanzó un hito de producto y cerró una ronda de $400M liderada por DST Global. La valoración de $24.000M lo posiciona como el competidor más serio de Google Search entre los nativos de IA.",
-        "source": "AI Funding Tracker",
-        "url": "https://aifundingtracker.com/ai-startup-funding-news-today/",
-        "date": "2026-03-11"
-      },
-      {
-        "title": "Fiebre de financiación en IA: 17 empresas americanas superan los $100M recaudados en 2026",
-        "summary": "TechCrunch confirma que en los primeros meses de 2026 ya son 17 las startups de IA en EE.UU. que han superado los $100M en una sola ronda. Robótica humanoide, agentes legales y plataformas de inferencia lideran el interés inversor, con proyecciones de más de $20.000M solo en robótica.",
-        "source": "TechCrunch",
-        "url": "https://techcrunch.com/2026/02/17/here-are-the-17-us-based-ai-companies-that-have-raised-100m-or-more-in-2026/",
-        "date": "2026-03-13"
+        "title": "Robótica humanoide como nueva categoría de inversión: Sunday recauda $165M a $1.15B de valoración",
+        "summary": "Sunday, startup de robótica doméstica, alcanzó el estatus de unicornio con su robot humanoide 'Memo' para el hogar. La robótica humanoide se proyecta como la categoría de inversión emergente de 2026, con más de $20B esperados en el año tras la validación comercial de Figure y otros.",
+        "source": "AI Funding Tracker / mean.ceo",
+        "url": "https://aifundingtracker.com/top-50-ai-startups/",
+        "date": "2026-03-09"
       }
     ]
   }
